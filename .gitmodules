@@ -1,0 +1,3 @@
+[submodule "ddsm"]
+	path = ddsm
+	url = git@github.com:multinormal/ddsm.git
