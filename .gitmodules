@@ -1,3 +1,6 @@
 [submodule "ddsm"]
 	path = ddsm
 	url = git@github.com:multinormal/ddsm.git
+[submodule "ljpeg"]
+	path = ljpeg
+	url = git@github.com:aaalgo/ljpeg.git
