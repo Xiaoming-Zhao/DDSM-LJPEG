@@ -1,4 +1,4 @@
-# !/usr/bin/env python
+#!/usr/bin/env python
 
 # --------------------------------------
 # This script is for getting information
@@ -10,6 +10,7 @@ import os
 import numpy as np
 import linecache
 import argparse
+from gen_raw_img import gen_raw_img
 
 def args_parse():
     parser = argparse.ArgumentParser(description='Read DDSM\'s ics file')
