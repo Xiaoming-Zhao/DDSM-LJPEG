@@ -8,6 +8,15 @@
 
 import os
 import numpy as np
-import linecache 
+import linecache
+import argparse
 
-def 
+def args_parse():
+    parser = argparse.ArgumentParser(description='Read DDSM\'s ics file')
+    parser.add_argument('--dir', des='file_dir',
+                        help='Set the DDSM images\'s directory.')
+
+    args = parser.parse_args()
+
+    return args
+
