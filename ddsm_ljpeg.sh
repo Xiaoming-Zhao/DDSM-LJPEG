@@ -5,7 +5,7 @@ while getopts "d:" arg
 do
 	case $arg in
 		d)
-		echo "LJPEG files's path is: $OPTARG"
+		echo "LJPEG files's path: $OPTARG"
 		path=$OPTARG
 		;;
 		?)
@@ -72,7 +72,7 @@ do
 		echo $file
 	done
 
-	echo -e "\n"
+	printf "\n"
 
 	cd ..
 done
