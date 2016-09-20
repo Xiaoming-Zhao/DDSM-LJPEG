@@ -15,11 +15,11 @@ do
 	# run python script
 	# to convert .LJPEG to raw image
 	raw2pnm_command=$(python $ljpeg2raw --dir $cur_path)
-	echo $raw2pnm_command
+	# echo $raw2pnm_command
 
 	# convert raw image to .pnm format
 	i=1
-	for item in $(raw2pnm_command)
+	for item in $raw2pnm_command
 	do
 		i=$i+1
 		echo $i
