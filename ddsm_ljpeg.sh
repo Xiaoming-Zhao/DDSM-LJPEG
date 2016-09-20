@@ -14,8 +14,8 @@ do
 
 	# run python script
 	# to convert .LJPEG to .1
-	python ljpeg2raw $cur_path
-	
+	python $ljpeg2raw --dir $cur_path
+
 	cd ..
 done
 
