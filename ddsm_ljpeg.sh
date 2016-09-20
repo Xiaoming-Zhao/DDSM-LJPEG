@@ -17,9 +17,11 @@ do
 	raw2pnm_command=$(python $ljpeg2raw --dir $cur_path)
 
 	# convert raw image to .pnm format
-	for sub_command in $(raw2pnm_command)
+	i=1
+	for item in $(raw2pnm_command)
 	do
-		$(sub_command)
+		i=$i+1
+		echo $i
 	done
 
 	cd ..
