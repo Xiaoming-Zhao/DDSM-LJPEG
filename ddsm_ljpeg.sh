@@ -22,12 +22,26 @@ do
 	for item in $raw2pnm_command_split
 	do
 		let "i=$i+1"
+
+		# check whether the new command begins
+		let "v=$i%5"
+		first_flag=$[$v==1]
 		# echo $i
 		echo $item
 
+		# check whether a full command ends
 		let "u=$i%5"
-		v=$[$u==0]
-		echo $v
+		round_flag=$[$u==0]
+		if $first_flag;then
+			raw2pnm_command=$item
+		else
+			raw2pnm_command=$raw2pnm_command" "$item
+		fi
+
+		if $round_flag;then
+			echo $raw2pnm_command
+		fi
+
 	done
 
 	cd ..
