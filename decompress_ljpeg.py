@@ -9,7 +9,6 @@
 import os
 import sys
 import numpy as np
-import linecache
 import argparse
 import glob
 from gen_raw_img import gen_raw_img
