@@ -27,7 +27,7 @@ do
 		let "v=$i%5"
 		first_flag=$[$v==1]
 		# echo $i
-		echo $item
+		# echo $item
 
 		# check whether a full command ends
 		let "u=$i%5"
@@ -40,6 +40,7 @@ do
 
 		if [ $round_flag == '1' ];then
 			echo $raw2pnm_command
+			$raw2pnm_command
 		fi
 
 	done
