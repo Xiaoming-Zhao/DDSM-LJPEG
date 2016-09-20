@@ -14,16 +14,20 @@ do
 
 	# run python script
 	# to convert .LJPEG to raw image
-	raw2pnm_command=$(python $ljpeg2raw --dir $cur_path)
+	raw2pnm_command_split=$(python $ljpeg2raw --dir $cur_path)
 	# echo $raw2pnm_command
 
 	# convert raw image to .pnm format
 	i=0
-	for item in $raw2pnm_command
+	for item in $raw2pnm_command_split
 	do
 		let "i=$i+1"
 		echo $i
 		echo $item
+
+		let "u=$i%5"
+		v=$[$u==1]
+		echo $v
 	done
 
 	cd ..
