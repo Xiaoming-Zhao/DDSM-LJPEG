@@ -8,7 +8,6 @@
 
 import os
 import sys
-import numpy as np
 import argparse
 import glob
 from gen_raw_img import gen_raw_img
