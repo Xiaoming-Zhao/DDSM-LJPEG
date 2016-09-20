@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-ljpeg2raw=/home/xmchiu/Mammo_Challenge/DDSM/DDSM-LJPEG/decompress_ljpeg.py
+ljpeg2raw=/home/xmchiu/Mammo_Challenge/DDSM/DDSM-LJPEG/lib/decompress_ljpeg.py
 raw2pnm=/home/xmchiu/Mammo_Challenge/DDSM/DDSM-LJPEG/ddsm/ddsm-software/ddsmraw2pnm
 path=/home/xmchiu/Mammo_Challenge/DDSM/test_images/test_case
+
 echo "path is $path"
 
 cd $path
