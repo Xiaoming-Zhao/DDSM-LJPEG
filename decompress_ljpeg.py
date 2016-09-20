@@ -92,3 +92,10 @@ if __name__ == '__main__':
 
     for ljpeg_path in img_path:
         gen_raw_img(ljpeg_path)
+
+        # print path of new raw image
+        file_name = os.path.basename(ljpeg_path)
+        dir_name = os.path.dirname(ljpeg_path)
+        raw_img_path = os.path.join(dir_name, file_name + '.1')
+        print 'Raw image at {}.\n'.format(raw_img_path)
+    
