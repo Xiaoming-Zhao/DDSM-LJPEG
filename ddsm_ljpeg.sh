@@ -68,7 +68,8 @@ do
 	pnm_list=$(ls *.pnm)
 	for file in $pnm_list
 	do
-		echo $file
+		convert $file $file.png
+		printf "%s\n" $file.png
 	done
 
 	printf "\n"
