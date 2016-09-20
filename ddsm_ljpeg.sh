@@ -23,7 +23,7 @@ do
 	# run python script
 	# to convert .LJPEG to raw image
 	raw2pnm_command_split=$(python $ljpeg2raw --dir $cur_path --raw2pnm $raw2pnm)
-	echo $raw2pnm_command_split
+	# echo $raw2pnm_command_split
 
 	# convert raw image to .pnm format
 	i=0
