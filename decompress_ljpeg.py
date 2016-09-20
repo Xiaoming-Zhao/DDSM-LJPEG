@@ -113,4 +113,4 @@ if __name__ == '__main__':
                          ics_info[view_index]['nrow'],
                          ics_info[view_index]['ncol'],
                          ics_info['digitizer_type']]
-        print '{} {} {} {} {}\n'.format(*variable_list)
+        print '{} {} {} {} {}'.format(*variable_list)
