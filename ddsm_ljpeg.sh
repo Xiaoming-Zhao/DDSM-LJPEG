@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 ljpeg2raw=/home/xmchiu/Mammo_Challenge/DDSM/DDSM-LJPEG/decompress_ljpeg.py
+raw2pnm=/home/xmchiu/Mammo_Challenge/DDSM/DDSM-LJPEG/ddsm/ddsm-software/ddsmraw2pnm
 path=/home/xmchiu/Mammo_Challenge/DDSM/test_images/test_case
 echo "path is $path"
 
@@ -14,7 +15,7 @@ do
 
 	# run python script
 	# to convert .LJPEG to raw image
-	raw2pnm_command_split=$(python $ljpeg2raw --dir $cur_path)
+	raw2pnm_command_split=$(python $ljpeg2raw --dir $cur_path --raw2pnm $raw2pnm)
 	# echo $raw2pnm_command
 
 	# convert raw image to .pnm format
