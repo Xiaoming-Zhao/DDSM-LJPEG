@@ -98,4 +98,3 @@ if __name__ == '__main__':
         dir_name = os.path.dirname(ljpeg_path)
         raw_img_path = os.path.join(dir_name, file_name + '.1')
         print 'Raw image at {}.\n'.format(raw_img_path)
-    
