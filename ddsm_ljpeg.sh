@@ -5,7 +5,7 @@ while getopts "d:" arg
 do
 	case $arg in
 		d)
-		echo "LJPEG files's path: $OPTARG"
+		printf "LJPEG files's path: %s" $OPTARG
 		path=$OPTARG
 		;;
 		?)
@@ -23,7 +23,7 @@ echo "DDSM-LJPEG tool's root path: $DIR"
 ljpeg2raw=$DIR/lib/decompress_ljpeg.py
 raw2pnm=$DIR/ddsm/ddsm-software/ddsmraw2pnm
 change_name=$DIR/lib/change_name.py
-echo -e "\n"
+printf "\n"
 
 cd $path
 
