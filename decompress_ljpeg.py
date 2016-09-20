@@ -16,7 +16,7 @@ from gen_raw_img import gen_raw_img
 
 
 DIGITIZER_CLASSES = ['dba', 'howtek-mgh', 'howtek-ismd', 'lumisys']
-DDSM_SOFTWARE_PATH = './ddsm/ddsm-software/ddsmraw2pnm'
+# DDSM_SOFTWARE_PATH = './ddsm/ddsm-software/ddsmraw2pnm'
 
 
 def get_info_from_ics(path):
@@ -61,6 +61,8 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Read DDSM\'s ics file')
     parser.add_argument('--dir', dest='dir_path',
                         help='Set the DDSM images\'s directory.')
+    parser.add_argument('--ddsm2raw', dest='ddsm2raw_path',
+                        help='Set the tool directory for DDSM to raw images.')
 
     if len(sys.argv) == 1:
         parser.print_help()
@@ -109,7 +111,7 @@ if __name__ == '__main__':
 
         # get corresponding row and column number from ics file
         # print the command for transforming to .pnm file
-        variable_list = [DDSM_SOFTWARE_PATH, raw_img_path,
+        variable_list = [args.ddsm2raw_path, raw_img_path,
                          ics_info[view_index]['nrow'],
                          ics_info[view_index]['ncol'],
                          ics_info['digitizer_type']]
