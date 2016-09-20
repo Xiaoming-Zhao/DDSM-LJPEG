@@ -23,7 +23,6 @@ printf "DDSM-LJPEG tool's root path: %s\n\n" $DIR
 ljpeg2raw=$DIR/lib/decompress_ljpeg.py
 raw2pnm=$DIR/ddsm/ddsm-software/ddsmraw2pnm
 change_name=$DIR/lib/change_name.py
-printf "\n"
 
 cd $path
 
@@ -60,7 +59,7 @@ do
 		fi
 
 		if [ $round_flag == '1' ];then
-			printf "%s\n" $raw2pnm_command
+			printf "%s %s %s %s %s\n" $raw2pnm_command
 			$raw2pnm_command
 		fi
 	done
