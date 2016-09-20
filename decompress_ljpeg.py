@@ -61,6 +61,7 @@ def args_parse():
     parser.add_argument('--dir', des='dir_path',
                         help='Set the DDSM images\'s directory.')
 
+    print len(sys.argv)
     if len(sys.argv) == 1:
         parser.print_help()
         sys.exit(1)
