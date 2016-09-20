@@ -72,6 +72,10 @@ do
 		printf "%s\n" $file.png
 	done
 
+	# use python script to change .png image name
+	# if not match with imdb_IRMA
+	
+
 	printf "\n"
 
 	cd ..
