@@ -14,9 +14,6 @@ BIN_PAR = os.path.abspath(
     os.path.join(os.path.dirname(__file__), os.path.pardir))
 BIN = os.path.join(BIN_PAR, 'ljpeg', 'jpegdir', 'jpeg')
 
-print BIN_PAR
-print BIN
-
 if not os.path.exists(BIN):
     print 'ljpeg\'s jpeg has not been built yet!'\
           'Use cd ljpeg/jpegdir & make first!\n'
