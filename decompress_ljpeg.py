@@ -16,6 +16,7 @@ from gen_raw_img import gen_raw_img
 
 
 DIGITIZER_CLASSES = ['dba', 'howtek-mgh', 'howtek-ismd', 'lumisys']
+DDSM_SOFTWARE_PATH = './ddsm/ddsm-software/ddsmraw2pnm'
 
 
 def get_info_from_ics(path):
@@ -48,7 +49,7 @@ def get_info_from_ics(path):
     img_info = ics_content[-4:]
     for img_line in img_info:
         split_line = img_line.split(' ')
-        img_index = split_line[0]
+        img_index = split_line[0].upper()
         nrow = split_line[2]
         ncol = split_line[4]
         ics_info[img_index] = {'nrow': nrow, 'ncol': ncol}
@@ -61,7 +62,6 @@ def parse_args():
     parser.add_argument('--dir', dest='dir_path',
                         help='Set the DDSM images\'s directory.')
 
-    print len(sys.argv)
     if len(sys.argv) == 1:
         parser.print_help()
         sys.exit(1)
@@ -87,14 +87,30 @@ if __name__ == '__main__':
     ics_info = get_info_from_ics(ics_path[0])
 
     # decompress .LJPEG to raw image of type .1
+    ljpeg_dict = {}
+
     assert img_path != [],\
         'There does not exist .LJPEG files: {}.\n'.format(dir_path)
 
     for ljpeg_path in img_path:
+
         gen_raw_img(ljpeg_path)
 
-        # print path of new raw image
+        # get angle index of file
         file_name = os.path.basename(ljpeg_path)
+        ljpeg_dict[file_name] = {}
+        view_index = file_name.split('.')[1].upper()
+        ljpeg_dict[file_name]['view'] = view_index
+
+        # get raw image path
         dir_name = os.path.dirname(ljpeg_path)
         raw_img_path = os.path.join(dir_name, file_name + '.1')
-        print 'Raw image at {}.\n'.format(raw_img_path)
+        ljpeg_dict[file_name]['raw_image'] = raw_img_path
+
+        # get corresponding row and column number from ics file
+        # print the command for transforming to .pnm file
+        variable_list = [DDSM_SOFTWARE_PATH, raw_img_path,
+                         ics_info[view_index]['nrow'],
+                         ics_info[view_index]['ncol'],
+                         ics_info['digitizer_type']]
+        print '{} {} {} {} {}\n'.format(*variable_list)
