@@ -17,17 +17,9 @@ from gen_raw_img import gen_raw_img
 DIGITIZER_CLASSES = ['dba', 'howtek-mgh', 'howtek-ismd', 'lumisys']
 
 
-def args_parse():
-    parser = argparse.ArgumentParser(description='Read DDSM\'s ics file')
-    parser.add_argument('--dir', des='dir',
-                        help='Set the DDSM images\'s directory.')
+def get_info_from_ics(path):
 
-    args = parser.parse_args()
-
-    return args
-
-
-def get_info_from_ics(path, im_index):
+    ics_info = {}
 
     with open(path, 'r') as ics_file:
         pre_ics_content = [item.strip() for item in ics_file.readlines()]
@@ -49,12 +41,46 @@ def get_info_from_ics(path, im_index):
     assert digitizer_type in DIGITIZER_CLASSES,\
         'Wrong digitizer type: {}!\n'.format(digitizer_type)
 
+    ics_info['digitizer_type'] = digitizer_type
+
+    # Find each image's number of rows and columns
+    img_info = ics_content[-4:]
+    for img_line in img_info:
+        split_line = img_line.split(' ')
+        img_index = split_line[0]
+        nrow = split_line[2]
+        ncol = split_line[4]
+        ics_info[img_index] = {'nrow': nrow, 'ncol': ncol}
+
+    return ics_info
 
 
+def args_parse():
+    parser = argparse.ArgumentParser(description='Read DDSM\'s ics file')
+    parser.add_argument('--dir', des='dir_path',
+                        help='Set the DDSM images\'s directory.')
 
-if __name__ = '__main__':
-    args = parse_args()
+    args = parser.parse_args()
 
-    dir_path = args.dir
-    ics_path = glob.glob(os.path.join(dri_path, '*.ics'))
-    img_path = glob.glob(os.path.join(dri_path, '*.LJPEG'))
+    return args
+
+
+if __name__ == '__main__':
+    args = args_parse()
+
+    dir_path = args.dir_path
+    ics_path = glob.glob(os.path.join(dir_path, '*.ics'))
+    img_path = glob.glob(os.path.join(dir_path, '*.LJPEG'))
+
+    # get information from .ics file
+    assert ics_path != [],\
+        'There does not exist .ics file: {}.\n'.format(dir_path)
+
+    ics_info = get_info_from_ics(ics_path)
+
+    # decompress .LJPEG to raw image of type .1
+    assert img_path != [],\
+        'There does not exist .LJPEG files: {}.\n'.format(dir_path)
+
+    for ljpeg_path in img_path:
+        gen_raw_img(ljpeg_path)

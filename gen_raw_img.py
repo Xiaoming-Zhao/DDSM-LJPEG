@@ -14,7 +14,7 @@ BIN = os.path.join(os.path.dirname(__file__), 'ljpeg', 'jpegdir', 'jpeg')
 
 if not os.path.exists(BIN):
     print 'ljpeg\'s jpeg has not been built yet!'\
-          'use cd ljpeg/jpegdir & make first!\n'
+          'Use cd ljpeg/jpegdir & make first!\n'
     sys.exit(0)
 
 
