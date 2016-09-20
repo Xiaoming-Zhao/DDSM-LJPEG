@@ -34,8 +34,7 @@ do
 	cur_path=$(pwd)
 	echo "Current path is $cur_path"
 
-	# run python script
-	# to convert .LJPEG to raw image
+	# run python script to convert .LJPEG to raw image
 	raw2pnm_command_split=$(python $ljpeg2raw --dir $cur_path --raw2pnm $raw2pnm)
 	# echo $raw2pnm_command_split
 
@@ -67,6 +66,11 @@ do
 	done
 
 	# use ImageMagick to convert .pnm to .png
+	pnm_list=$(ls *.pnm)
+	for file in $pnm_list
+	do
+		echo $file
+	done
 
 	echo -e "\n"
 
