@@ -23,6 +23,7 @@ do
 	do
 		let "i=$i+1"
 		echo $i
+		echo $item
 	done
 
 	cd ..
