@@ -5,7 +5,7 @@ while getopts "d:" arg
 do
 	case $arg in
 		d)
-		echo "path is: $OPTARG"
+		echo "LJPEG files's path is: $OPTARG"
 		path=$OPTARG
 		;;
 		?)
@@ -17,7 +17,8 @@ done
 
 # get the script directory
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-echo $DIR
+
+echo "DDSM-LJPEG tool's root path: $DIR"
 
 ljpeg2raw=$DIR/lib/decompress_ljpeg.py
 raw2pnm=$DIR/ddsm/ddsm-software/ddsmraw2pnm
@@ -26,6 +27,7 @@ echo -e "\n"
 
 cd $path
 
+# convert LJPEG to png
 for sub_path in $(ls)
 do
 	cd $sub_path
@@ -62,8 +64,9 @@ do
 			echo $raw2pnm_command
 			$raw2pnm_command
 		fi
-
 	done
+
+	# use ImageMagick to convert .pnm to .png
 
 	echo -e "\n"
 
