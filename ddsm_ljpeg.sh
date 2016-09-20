@@ -32,13 +32,13 @@ do
 		# check whether a full command ends
 		let "u=$i%5"
 		round_flag=$[$u==0]
-		if $first_flag==1;then
+		if [$round_flag==1];then
 			raw2pnm_command=$item
 		else
 			raw2pnm_command=$raw2pnm_command" "$item
 		fi
 
-		if $round_flag==1;then
+		if [$round_flag==1];then
 			echo $raw2pnm_command
 		fi
 
