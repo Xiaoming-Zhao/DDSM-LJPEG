@@ -10,5 +10,6 @@ do
 	cd $sub_path
 	cur_path=$(pwd)
 	echo "Current path is $cur_path"
+	cd ..
 done
 
