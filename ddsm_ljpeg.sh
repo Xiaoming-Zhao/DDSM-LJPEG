@@ -18,7 +18,7 @@ do
 	# echo $raw2pnm_command
 
 	# convert raw image to .pnm format
-	i=1
+	i=0
 	for item in $raw2pnm_command
 	do
 		let "i=$i+1"
