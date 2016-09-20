@@ -10,6 +10,7 @@ change_name=$DIR/lib/change_name.py
 path=/home/xmchiu/Mammo_Challenge/DDSM/test_images/test_case
 
 echo "path is $path"
+echo $raw2pnm
 
 cd $path
 
