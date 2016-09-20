@@ -21,7 +21,7 @@ do
 	i=1
 	for item in $raw2pnm_command
 	do
-		i=$i+1
+		let "i=$i+1"
 		echo $i
 	done
 
