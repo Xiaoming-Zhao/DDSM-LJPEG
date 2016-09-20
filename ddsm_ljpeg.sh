@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
+# get the script directory
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+echo $DIR
+
 ljpeg2raw=/home/xmchiu/Mammo_Challenge/DDSM/DDSM-LJPEG/lib/decompress_ljpeg.py
 raw2pnm=/home/xmchiu/Mammo_Challenge/DDSM/DDSM-LJPEG/ddsm/ddsm-software/ddsmraw2pnm
+changename=ljpeg2raw=/home/xmchiu/Mammo_Challenge/DDSM/DDSM-LJPEG/lib/decompress_ljpeg.py
 path=/home/xmchiu/Mammo_Challenge/DDSM/test_images/test_case
 
 echo "path is $path"
