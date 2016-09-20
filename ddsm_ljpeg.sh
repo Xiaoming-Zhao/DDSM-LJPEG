@@ -4,9 +4,9 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 echo $DIR
 
-ljpeg2raw=/home/xmchiu/Mammo_Challenge/DDSM/DDSM-LJPEG/lib/decompress_ljpeg.py
-raw2pnm=/home/xmchiu/Mammo_Challenge/DDSM/DDSM-LJPEG/ddsm/ddsm-software/ddsmraw2pnm
-changename=ljpeg2raw=/home/xmchiu/Mammo_Challenge/DDSM/DDSM-LJPEG/lib/decompress_ljpeg.py
+ljpeg2raw=$DIR/lib/decompress_ljpeg.py
+raw2pnm=$DIR/ddsm/ddsm-software/ddsmraw2pnm
+change_name=$DIR/lib/change_name.py
 path=/home/xmchiu/Mammo_Challenge/DDSM/test_images/test_case
 
 echo "path is $path"
