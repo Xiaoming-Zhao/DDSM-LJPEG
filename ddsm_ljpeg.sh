@@ -26,7 +26,7 @@ do
 		echo $item
 
 		let "u=$i%5"
-		v=$[$u==1]
+		v=$[$u==0]
 		echo $v
 	done
 
