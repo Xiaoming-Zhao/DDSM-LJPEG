@@ -5,7 +5,7 @@ while getopts "d:" arg
 do
 	case $arg in
 		d)
-		echo "path is arg:$OPTARG"
+		echo "path is: $OPTARG"
 		path=$OPTARG
 		;;
 		?)
@@ -61,10 +61,11 @@ do
 		if [ $round_flag == '1' ];then
 			echo $raw2pnm_command
 			$raw2pnm_command
-			echo -e "\n"
 		fi
 
 	done
+
+	echo -e "\n"
 
 	cd ..
 done
