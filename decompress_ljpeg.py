@@ -81,8 +81,10 @@ if __name__ == '__main__':
     # get information from .ics file
     assert ics_path != [],\
         'There does not exist .ics file: {}.\n'.format(dir_path)
+    assert len(ics_path) == 1,\
+        'There exist two .ics files: {}.\n'.format(dir_path)
 
-    ics_info = get_info_from_ics(ics_path)
+    ics_info = get_info_from_ics(ics_path[0])
 
     # decompress .LJPEG to raw image of type .1
     assert img_path != [],\
