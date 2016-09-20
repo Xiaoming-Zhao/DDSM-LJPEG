@@ -13,8 +13,14 @@ do
 	echo "Current path is $cur_path"
 
 	# run python script
-	# to convert .LJPEG to .1
-	python $ljpeg2raw --dir $cur_path
+	# to convert .LJPEG to raw image
+	raw2pnm_command=$(python $ljpeg2raw --dir $cur_path)
+
+	# convert raw image to .pnm format
+	for sub_command in $(raw2pnm_command)
+	do
+		$(sub_command)
+	done
 
 	cd ..
 done
