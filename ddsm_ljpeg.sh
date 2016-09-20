@@ -1,5 +1,20 @@
 #!/usr/bin/env bash
 
+# read the input parameter
+while getopts "d:" arg
+do
+	case $arg in
+		d)
+		echo "path is arg:$OPTARG"
+		path=$OPTARG
+		;;
+		?)
+		echo "unkonw argument"
+		exit 1
+		;;
+	esac
+done
+
 # get the script directory
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 echo $DIR
@@ -7,10 +22,7 @@ echo $DIR
 ljpeg2raw=$DIR/lib/decompress_ljpeg.py
 raw2pnm=$DIR/ddsm/ddsm-software/ddsmraw2pnm
 change_name=$DIR/lib/change_name.py
-path=/home/xmchiu/Mammo_Challenge/DDSM/test_images/test_case
-
-echo "path is $path"
-echo $raw2pnm
+echo -e "\n"
 
 cd $path
 
@@ -49,6 +61,7 @@ do
 		if [ $round_flag == '1' ];then
 			echo $raw2pnm_command
 			$raw2pnm_command
+			echo -e "\n"
 		fi
 
 	done

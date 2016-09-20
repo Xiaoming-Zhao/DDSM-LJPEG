@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 # -------------------------------------------------
-# This script is for changing names of .pnm images.
+# This script is for changing names of .png images.
 # Written by Xiaoming Zhao
 # -------------------------------------------------
 
@@ -32,4 +32,6 @@ if __name__ == '__main__':
 
     pnm_list = glob.glob(os.path.join(dir_path, '*.pnm'))
     assert pnm_list != [],\
-        'There does not exist .ics file: {}.\n'.format(dir_path)
+        'There does not exist .pnm file: {}.\n'.format(dir_path)
+
+    # chagne pnm file name to 
