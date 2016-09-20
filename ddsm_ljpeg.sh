@@ -22,7 +22,7 @@ do
 	for item in $raw2pnm_command_split
 	do
 		let "i=$i+1"
-		echo $i
+		# echo $i
 		echo $item
 
 		let "u=$i%5"
