@@ -58,7 +58,7 @@ def get_info_from_ics(path):
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Read DDSM\'s ics file')
-    parser.add_argument('--dir', des='dir_path',
+    parser.add_argument('--dir', dest='dir_path',
                         help='Set the DDSM images\'s directory.')
 
     print len(sys.argv)
