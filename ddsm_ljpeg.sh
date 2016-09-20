@@ -5,7 +5,7 @@ while getopts "d:" arg
 do
 	case $arg in
 		d)
-		printf "LJPEG files's path: %s" $OPTARG
+		printf "LJPEG files's path: %s\n" $OPTARG
 		path=$OPTARG
 		;;
 		?)
@@ -18,7 +18,7 @@ done
 # get the script directory
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-echo "DDSM-LJPEG tool's root path: $DIR"
+printf "DDSM-LJPEG tool's root path: %s\n\n" $DIR
 
 ljpeg2raw=$DIR/lib/decompress_ljpeg.py
 raw2pnm=$DIR/ddsm/ddsm-software/ddsmraw2pnm
@@ -32,7 +32,7 @@ for sub_path in $(ls)
 do
 	cd $sub_path
 	cur_path=$(pwd)
-	echo "Current path is $cur_path"
+	printf "Current path is %s\n" $cur_path
 
 	# run python script to convert .LJPEG to raw image
 	raw2pnm_command_split=$(python $ljpeg2raw --dir $cur_path --raw2pnm $raw2pnm)
@@ -60,7 +60,7 @@ do
 		fi
 
 		if [ $round_flag == '1' ];then
-			echo $raw2pnm_command
+			printf "%s\n" $raw2pnm_command
 			$raw2pnm_command
 		fi
 	done
