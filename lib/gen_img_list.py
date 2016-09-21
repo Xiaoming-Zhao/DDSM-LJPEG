@@ -54,12 +54,14 @@ if __name__ == '__main__':
 
     imdb_path = args.imdb_path
 
-    img_index_list = gen_img_list(imdb_path)
-
-    img_list_file = os.path.join(ROOT_PATH, 'img_index_list.txt')
     print 'Generating image index list of imdb_IRMA ...\n'
+    img_index_list = gen_img_list(imdb_path)
+    print '... done\n\n'
 
     # Write the list to file
+    img_list_file = os.path.join(ROOT_PATH, 'img_index_list.txt')
+    print 'Writing image list to file ...\n'
+
     with open(img_list_file, 'w') as f:
         for item in img_index_list.keys():
             f.write('{} {}\n'.format(item, img_index_list[item]))
