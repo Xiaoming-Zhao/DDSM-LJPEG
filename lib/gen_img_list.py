@@ -11,7 +11,7 @@ import os
 import argparse
 
 ROOT_PATH = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), os.path.pardir()))
+    os.path.join(os.path.dirname(__file__), os.path.pardir))
 
 
 def gen_img_list(path):
