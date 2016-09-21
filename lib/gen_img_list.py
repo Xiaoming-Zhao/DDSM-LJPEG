@@ -46,6 +46,8 @@ def parse_args():
         description='Generate the image list file of imdb_IRMA')
     parser.add_argument('--imdb', dest='imdb_path',
                         help='Set the path of imdb_IRMA.')
+    parser.add_argument('--file', dest='img_list_file',
+                        help='Set the writing path for image index list file.')
 
     if len(sys.argv) == 1:
         parser.print_help()
@@ -70,7 +72,7 @@ if __name__ == '__main__':
     # Write the list to file
     img_index_list = result_dict['list']
 
-    img_list_file = os.path.join(ROOT_PATH, 'img_index_list.txt')
+    img_list_file = args.img_list_file
     print 'Writing image list to file ...'
 
     with open(img_list_file, 'w') as f:
