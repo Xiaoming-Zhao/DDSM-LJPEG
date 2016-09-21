@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 
 # read the input parameter
-while getopts "d:" arg
+while getopts "d:i:" arg
 do
 	case $arg in
 		d)
 		printf "LJPEG files's path: %s\n" $OPTARG
-		path=$OPTARG
+		path_ljpeg=$OPTARG
+		;;
+		i)
+		printf "imdb_IRMA's path: %s\n" $OPTARG
+		path_imdb=$OPTARG
 		;;
 		?)
 		echo "unkonw argument"
@@ -24,7 +28,7 @@ ljpeg2raw=$DIR/lib/decompress_ljpeg.py
 raw2pnm=$DIR/ddsm/ddsm-software/ddsmraw2pnm
 change_name=$DIR/lib/change_name.py
 
-cd $path
+cd $path_ljpeg
 
 # convert LJPEG to png
 for sub_path in $(ls)
