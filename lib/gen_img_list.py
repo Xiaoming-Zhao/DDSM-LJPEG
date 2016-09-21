@@ -24,7 +24,7 @@ def gen_img_list(path):
             img_num = img_num + 1
 
             filename_split = filename.split('.')
-            print '{}\n'.format(filename_split)
+            # print '{}\n'.format(filename_split)
             LJPEG_index = filename_split.index('LJPEG')
             img_index = '.'.join(filename_split[:LJPEG_index])
             img_index_list[img_index] = filename
