@@ -32,7 +32,7 @@ change_name=$DIR/lib/change_name.py
 
 
 # generate image index list of imdb_IRMA
-$(python $gen_img_list --imdb $imdb_path)
+python $gen_img_list --imdb $imdb_path
 
 
 # convert LJPEG to png
