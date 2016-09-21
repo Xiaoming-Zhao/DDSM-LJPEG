@@ -29,9 +29,9 @@ def gen_img_list(path):
             img_index = '.'.join(filename_split[:LJPEG_index])
             img_index_list[img_index] = filename
 
-    print 'The total image number is {}.\n\n'.format(img_num)
+    result_dict = {'list': img_index_list, 'img_num': img_num}
 
-    return img_index_list
+    return result_dict
 
 
 def parse_args():
@@ -55,10 +55,13 @@ if __name__ == '__main__':
     imdb_path = args.imdb_path
 
     print 'Generating image index list of imdb_IRMA ...\n'
-    img_index_list = gen_img_list(imdb_path)
+    result_dict = gen_img_list(imdb_path)
     print '... done\n\n'
+    print 'The total image number is {}.\n\n'.format(result_dict['img_num'])
 
     # Write the list to file
+    img_index_list = result_dict['list']
+
     img_list_file = os.path.join(ROOT_PATH, 'img_index_list.txt')
     print 'Writing image list to file ...\n'
 
