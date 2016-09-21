@@ -25,12 +25,15 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 printf "DDSM-LJPEG tool's root path: %s\n\n" $DIR
 
-# set the path to scripts and files
+# set the path to scripts
 gen_img_list=$DIR/lib/gen_img_list.py
 ljpeg2raw=$DIR/lib/decompress_ljpeg.py
 raw2pnm=$DIR/ddsm/ddsm-software/ddsmraw2pnm
 change_name=$DIR/lib/change_name.py
-img_list_file=$DIR/img_index_list.txt
+
+# set the path to files
+img_list_file=$DIR/docs/img_index_list.txt
+repeated_img_list=$DIR/docs/repeated_img_list.txt
 
 
 # generate image index list of imdb_IRMA

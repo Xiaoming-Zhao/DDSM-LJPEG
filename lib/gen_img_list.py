@@ -72,7 +72,12 @@ if __name__ == '__main__':
     # Write the list to file
     img_index_list = result_dict['list']
 
+    # check whether there already exists directory
     img_list_file = args.img_list_file
+    pre_dir = os.path.dirname(img_list_file)
+    if not os.path.exists(pre_dir):
+        os.makedirs(pre_dir)
+
     print 'Writing image list to file ...'
 
     with open(img_list_file, 'w') as f:
