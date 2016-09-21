@@ -111,3 +111,11 @@ done
 # we just write the name to $repeated_img_list
 python $change_name --dir $path_ljpeg --file $img_list_file --repeat $repeated_img_list
 
+
+# copy all the converted .png images to png folder
+# mkdir png
+# for item in $(find . -name "*.png")
+# do
+#	cp $item ./png/${item##*/}
+# done
+
