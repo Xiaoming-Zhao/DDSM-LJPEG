@@ -9,6 +9,7 @@
 import sys
 import os
 import argparse
+import numpy as np
 
 ROOT_PATH = os.path.abspath(
     os.path.join(os.path.dirname(__file__), os.path.pardir))
@@ -27,7 +28,13 @@ def gen_img_list(path):
             # print '{}\n'.format(filename_split)
             LJPEG_index = filename_split.index('LJPEG')
             img_index = '.'.join(filename_split[:LJPEG_index])
-            img_index_list[img_index] = filename
+
+            # add img_index to dict
+            # we need to check whether there already exist the key
+            if img_index in img_index_list.keys():
+                img_index_list[img_index].append(filename)
+            else:
+                img_index_list[img_index] = [filename]
 
     result_dict = {'list': img_index_list, 'img_num': img_num}
 
@@ -54,7 +61,8 @@ if __name__ == '__main__':
 
     imdb_path = args.imdb_path
 
-    print 'Generating image index list of imdb_IRMA ...\n'
+    # generate the image list
+    print 'Generating image index list of imdb_IRMA ...'
     result_dict = gen_img_list(imdb_path)
     print '... done\n\n'
     print 'The total image number is {}.\n\n'.format(result_dict['img_num'])
@@ -63,11 +71,16 @@ if __name__ == '__main__':
     img_index_list = result_dict['list']
 
     img_list_file = os.path.join(ROOT_PATH, 'img_index_list.txt')
-    print 'Writing image list to file ...\n'
+    print 'Writing image list to file ...'
 
     with open(img_list_file, 'w') as f:
         for item in img_index_list.keys():
-            f.write('{} {}\n'.format(item, img_index_list[item]))
+            info_list = [item]
+            info_list.extend(img_index_list[item])
+            if len(info_list) == 2:
+                f.write('{} {}\n'.format(*info_list))
+            else:
+                f.write('{} {} {}\n'.format(*info_list))
 
     print '... done\n'
     print 'The file of imdb_IRMA\'s image index list is at {}.\n\n'\
