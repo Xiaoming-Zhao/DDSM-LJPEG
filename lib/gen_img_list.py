@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 
-# ----------------------------------------------
-# This script is for generating image index list
-# from imdb_IRMA.
+# --------------------------------------------------------------
+# This script is for generating image index list from imdb_IRMA.
 # Written by Xiaoming Zhao
-# ----------------------------------------------
+# --------------------------------------------------------------
 
 import sys
 import os
