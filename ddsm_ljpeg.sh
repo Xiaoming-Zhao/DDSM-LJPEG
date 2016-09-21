@@ -19,6 +19,7 @@ do
 	esac
 done
 
+
 # get the script directory
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -29,12 +30,14 @@ ljpeg2raw=$DIR/lib/decompress_ljpeg.py
 raw2pnm=$DIR/ddsm/ddsm-software/ddsmraw2pnm
 change_name=$DIR/lib/change_name.py
 
-cd $path_ljpeg
 
 # generate image index list of imdb_IRMA
 $(python $gen_img_list --imdb $imdb_path)
 
+
 # convert LJPEG to png
+cd $path_ljpeg
+
 for sub_path in $(ls)
 do
 	cd $sub_path
