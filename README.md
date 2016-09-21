@@ -2,7 +2,7 @@
 This repository is created for converting Mammography of [Digital Database for Screening Mammography (DDSM)](http://marathon.csee.usf.edu/Mammography/Database.html) form LJPEG to more ordinary format.
 
 ## Prerequisite
-[ImageMagick](http://www.imagemagick.org/) is a great tool for image processing.
+[ImageMagick](http://www.imagemagick.org/) is a great tool for image processing. We use it for converting from .pnm to .png.
 
 
 ## Install
