@@ -92,6 +92,6 @@ if __name__ == '__main__':
             with open(repeated_img_file, 'a') as f:
                 f.write('{} {} {} {}\n').format(*info_list)
 
-    print '... done\n'
-    print 'Rename {} images.\nWrite {} repeated images to {}.\n\n'\
+    print '... done'
+    print 'Rename {} images.\nWrite {} repeated images to {}.\n'\
         .format(rename_num, repeated_img_num, repeated_img_file)
