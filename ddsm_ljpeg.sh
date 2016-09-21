@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# ------------------------------------------
+# This script is for converting DDSM's LJPEG
+# files to png images.
+# Written by Xiaoming Zhao
+# ------------------------------------------
+
 # read the input parameter
 while getopts "d:i:" arg
 do
