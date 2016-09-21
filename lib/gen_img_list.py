@@ -66,7 +66,7 @@ if __name__ == '__main__':
     # generate the image list
     print 'Generating image index list of imdb_IRMA ...'
     result_dict = gen_img_list(imdb_path)
-    print '... done\n'
+    print '... done'
     print 'The total image number is {}.\n'.format(result_dict['img_num'])
 
     # Write the list to file
@@ -89,6 +89,6 @@ if __name__ == '__main__':
             else:
                 f.write('{} {} {}\n'.format(*info_list))
 
-    print '... done\n'
+    print '... done'
     print 'The file of imdb_IRMA\'s image index list is at {}.\n\n'\
           .format(img_list_file)
