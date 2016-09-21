@@ -9,7 +9,6 @@
 import sys
 import os
 import argparse
-import numpy as np
 
 ROOT_PATH = os.path.abspath(
     os.path.join(os.path.dirname(__file__), os.path.pardir))
@@ -26,8 +25,8 @@ def gen_img_list(path):
 
             filename_split = filename.split('.')
             # print '{}\n'.format(filename_split)
-            LJPEG_index = filename_split.index('LJPEG')
-            img_index = '.'.join(filename_split[:LJPEG_index])
+            # LJPEG_index = filename_split.index('LJPEG')
+            img_index = '.'.join(filename_split[:2])
 
             # add img_index to dict
             # we need to check whether there already exist the key
