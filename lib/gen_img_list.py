@@ -33,7 +33,8 @@ def gen_img_list(path):
             if img_index in img_index_list.keys():
                 img_index_list[img_index].append(filename)
             else:
-                img_index_list[img_index] = [filename]
+                img_index_list[img_index] = []
+                img_index_list[img_index].append(filename)
 
     result_dict = {'list': img_index_list, 'img_num': img_num}
 
