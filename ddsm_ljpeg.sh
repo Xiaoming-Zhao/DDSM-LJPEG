@@ -109,5 +109,5 @@ done
 # We just change the image name of unique image index.
 # If an image index has more than one image,
 # we just write the name to $repeated_img_list
-python $change_name --dir $path_ljpeg --file $img_list_file
+python $change_name --dir $path_ljpeg --file $img_list_file --repeat $repeated_img_list
 

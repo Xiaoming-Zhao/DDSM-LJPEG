@@ -13,9 +13,9 @@ import argparse
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description='Change pnm\'s name to match imdb_IRMA')
+        description='Change png\'s name to match imdb_IRMA')
     parser.add_argument('--dir', dest='dir_path',
-                        help='Set the .pnm images\'s directory.')
+                        help='Set the .png images\'s directory.')
     parser.add_argument('--file', dest='img_list_file',
                         help='Set the imdb_IRMA image list\'s directory.')
     parser.add_argument('--repeat', dest='repeated_img_file',
@@ -49,37 +49,48 @@ if __name__ == '__main__':
         img_index_list[split_line[0]] = []
         img_index_list[split_line[0]].extend(split_line[1:])
 
-    # get the .pnm file list under the path
-    pnm_list = glob.glob(os.path.join(dir_path, '*.pnm'))
-    assert pnm_list != [],\
-        'There does not exist .pnm file: {}.\n'.format(dir_path)
+    # get the .png file list under the path
+    png_list = []
 
-    # chagne pnm file name to match the name of imdb_IRMA
+    for (dirpath, dirname_s, filename_s) in os.walk(dir_path):
+        for filename in filename_s:
+            if filename.split('.')[-1].lower() == 'png':
+                png_list.append(os.path.join(dirpath, filename))
+
+    assert png_list != [],\
+        'There does not exist .png file: {}.\n'.format(dir_path)
+
+    print 'Find {} .png images totally.\n'
+
+    # chagne png file name to match the name of imdb_IRMA
+    print 'Changing name of png files ...'
+
     repeated_img_file = args.repeated_img_file
     rename_num = 0
     repeated_img_num = 0
 
-    for pnm_file in pnm_list:
-        pnm_dirname = os.path.dirname(pnm_file)
-        pnm_filename = os.path.basename(pnm_file)
-        file_index = pnm_filename.split('.')[:2]
+    for png_file in png_list:
+        png_dirname = os.path.dirname(png_file)
+        png_filename = os.path.basename(png_file)
+        file_index = png_filename.split('.')[:2]
 
         assert file_index in img_index_list.keys(),\
             'Wrong image index, imdb_IRMA does not include this image: {}.\n'\
-            .format(pnm_file)
+            .format(png_file)
 
         new_filename_list = img_index_list[file_index]
         if len(new_filename_list) == 1:
             rename_num = rename_num + 1
             new_filename = new_filename_list[0]
-            os.rename(pnm_file, os.path.join(pnm_dirname, new_filename))
+            os.rename(png_file, os.path.join(png_dirname, new_filename))
         else:
             repeated_img_num = repeated_img_num + 1
             info_list = [file_index]
             info_list.extend(new_filename_list)
-            info_list.append(pnm_file)
+            info_list.append(png_file)
             with open(repeated_img_file, 'a') as f:
                 f.write('{} {} {} {}\n').format(*info_list)
 
+    print '... done\n'
     print 'Rename {} images.\nWrite {} repeated images to {}.\n\n'\
         .format(rename_num, repeated_img_num, repeated_img_file)
