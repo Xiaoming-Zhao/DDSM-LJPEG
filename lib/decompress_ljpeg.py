@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
-# --------------------------------------
-# This script is for getting information
-# from DDSM .ics files.
+# ------------------------------------------------------------
+# This script is for getting information from DDSM .ics files,
+# as well as decompressing LJPEG to raw images.
 # Written by Xiaoming Zhao
-# --------------------------------------
+# ------------------------------------------------------------
 
 import os
 import sys
