@@ -73,6 +73,7 @@ if __name__ == '__main__':
         png_dirname = os.path.dirname(png_file)
         png_filename = os.path.basename(png_file)
         file_index = png_filename.split('.')[:2]
+        print '{} {} {}\n'.format(png.dirname, png_filename, file_index)
 
         assert file_index in img_index_list.keys(),\
             'Wrong image index, imdb_IRMA does not include this image: {}.\n'\
