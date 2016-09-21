@@ -60,7 +60,7 @@ if __name__ == '__main__':
     assert png_list != [],\
         'There does not exist .png file: {}.\n'.format(dir_path)
 
-    print 'Find {} .png images totally.\n'
+    print 'Find {} png images totally.\n'.format(len(png_list))
 
     # chagne png file name to match the name of imdb_IRMA
     print 'Changing name of png files ...'
