@@ -10,7 +10,7 @@ do
 		;;
 		i)
 		printf "imdb_IRMA's path: %s\n" $OPTARG
-		path_imdb=$OPTARG
+		imdb_path=$OPTARG
 		;;
 		?)
 		echo "unkonw argument"
@@ -24,11 +24,15 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 printf "DDSM-LJPEG tool's root path: %s\n\n" $DIR
 
+gen_img_list=$DIR/lib/gen_img_list.py
 ljpeg2raw=$DIR/lib/decompress_ljpeg.py
 raw2pnm=$DIR/ddsm/ddsm-software/ddsmraw2pnm
 change_name=$DIR/lib/change_name.py
 
 cd $path_ljpeg
+
+# generate image index list of imdb_IRMA
+$(python $gen_img_list --imdb $imdb_path)
 
 # convert LJPEG to png
 for sub_path in $(ls)

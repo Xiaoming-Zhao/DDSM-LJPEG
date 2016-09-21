@@ -12,7 +12,8 @@ import argparse
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description='Read DDSM\'s ics file')
+    parser = argparse.ArgumentParser(
+        description='Change pnm\'s name to match imdb_IRMA')
     parser.add_argument('--dir', dest='dir_path',
                         help='Set the .pnm images\'s directory.')
 
