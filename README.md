@@ -6,19 +6,19 @@ This repository is created for converting Mammography of [Digital Database for S
 
 
 ## Install
-1. Download the resources.
+1.Download the resources.
 ```
 # make sure to clone with --recursive
 git clone --recursive git@github.com:Xiaoming-Zhao/DDSM-LJPEG.git
 ```
 
-2. ljpeg
+2.ljpeg
 ```
 cd ljpeg/jpegdir
 make
 ```
 
-3. ddsm
+3.ddsm
 ```
 cd ddsm/ddsm-software
 g++ -Wall -O2 ddsmraw2pnm.c -o ddsmraw2pnm
