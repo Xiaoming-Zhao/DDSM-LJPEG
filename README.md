@@ -25,7 +25,7 @@ g++ -Wall -O2 ddsmraw2pnm.c -o ddsmraw2pnm
 ```
 
 ## Usage
-Directly run the command below. I just write the `ddsm_ljpeg.sh` to fit my desire. It is easy for anyone who want to use for their own to modify the bash script.
+Directly run the command below. I just write the `ddsm_ljpeg.sh` to fit my desire. It is easy for anyone to meet their own requirements by modifying the bach script.
 ```
 bash /path/to/DDSM-LJPEG/ddsm_ljpeg.sh -d /path/to/your/LJPEG/directory -i /path/to/your/imdb_IRMA
 ```
